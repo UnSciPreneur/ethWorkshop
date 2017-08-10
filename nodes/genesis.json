@@ -1,0 +1,18 @@
+{
+        "config": {
+                "chainId": 31297718,
+                "homesteadBlock": 0,
+                "eip155Block": 0,
+                "eip158Block": 0
+        },
+        "nonce": "0x88e394dcf26ec94c",
+        "timestamp": "0x0",
+        "parentHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+        "extraData": "0x00",
+        "gasLimit": "0x8000000",
+        "difficulty": "0x400",
+        "mixhash": "0xA20A010A22AB48374F93BC0FF87277859CB40E5B2817F300DAE4ACDC5832FC65",
+        "coinbase": "0x3333333333333333333333333333333333333333",
+        "alloc": {
+        }
+}

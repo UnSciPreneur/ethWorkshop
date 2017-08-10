@@ -1,0 +1,10 @@
+.idea
+*.iml
+nodes/data_eth_0/geth
+nodes/data_eth_0/geth.ipc
+nodes/data_eth_0/history
+nodes/data_eth_1/geth
+nodes/data_eth_1/geth.ipc
+nodes/data_eth_1/history
+*.log
+*.log.*
