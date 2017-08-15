@@ -25,4 +25,4 @@ PORT=40303
 # index of the account to use
 ETHERBASE=0
 
-geth --nodiscover --password .gethPrivatePassword_0 --unlock 0 --datadir="data_eth_0" --identity "eth_node_0" --verbosity 4 --port ${PORT} --rpc --rpcaddr=${RPCADDRESS} --rpcport ${RPCPORT} --rpcapi "admin,db,eth,debug,miner,net,shh,txpool,personal,web3" --networkid ${NETWORKID} --mine --minerthreads 1 --etherbase ${ETHERBASE} console 2>>"eth_0.log"
+geth --nodiscover --password .gethPrivatePassword_0 --unlock 0 --datadir="data_eth_0" --identity "eth_node_0" --verbosity 4 --port ${PORT} --rpc --rpcaddr=${RPCADDRESS} --rpcport ${RPCPORT} --rpccorsdomain "*" --rpcapi "admin,db,eth,debug,miner,net,shh,txpool,personal,web3" --networkid ${NETWORKID} --mine --minerthreads 1 --etherbase ${ETHERBASE} console 2>>"eth_0.log"
