@@ -76,3 +76,13 @@ Now you can start the server to interact with the dapp via your webbrowser
 npm run dev
 ```
 You can access the website through your browser at localhost:8080.
+
+# Creating an additional smart contract
+
+You need to create a new file myNewContract.sol in the contracts directory and a new migration file in the migrations directory, i.e. create 3_deploy_myNewContract.js. NOTE: This new deploy file needs to start with an integer increased +1 comparing to the last one! I.e. 3_deploy_myNewContract.js and then 4_deploy_myNextNewContract.js.
+
+If you need to redeploy all contracts you can use
+```bash
+npm truffle migragte --reset
+```
+
