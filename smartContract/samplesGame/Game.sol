@@ -8,23 +8,32 @@ contract Game {
   */
   mapping (bytes32 => uint8) public votesReceived;
   bytes32[] public candidateList;
-
+  uint public blockNumber;
+  bytes32 public blockHashNow;
+  uint random_number;
+  uint reward;
 
   // Constructor
   function Game(bytes32[] candidateNames) {
     candidateList = candidateNames;
   }
 
-// This is the syntax for a default function that will be executed if ether is sent to the smart contract.
-// If the smart contract should be able to receive ether, this function is mandatory. If it does not exist
-// transactions containing ether will be sent back.
+
+
+  // This is the syntax for a default function that will be executed if ether is sent to the smart contract.
+  // If the smart contract should be able to receive ether, this function is mandatory. If it does not exist
+  // transactions containing ether will be sent back.
   function() payable {}
 
   function playGame() returns (bool) {
-    msg.sender.send(100);
-  return true;
+    blockNumber = block.number;
+    blockHashNow = block.blockhash(blockNumber);
+    random_number = uint(block.blockhash(block.number-1))%10;
+    reward = random_number*100;
+    msg.sender.send(reward);
+    return true;
   }
 
-// Interaction via truffle console:
-// Game.deployed().then(function(contractInstance) {contractInstance.playGame.then(function(v) {console.log(v)})})
+  // Interaction via truffle console:
+  // Game.deployed().then(function(contractInstance) {contractInstance.playGame.then(function(v) {console.log(v)})})
 }
