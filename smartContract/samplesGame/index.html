@@ -1,37 +1,84 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Hello World DApp</title>
+  <title>A simple roulette DApp</title>
   <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
   <link href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' rel='stylesheet' type='text/css'>
 </head>
 <body class="container">
-<h1>A Simple Hello World Game Application</h1>
+<h1>A Simple Roulette Application</h1>
 <div id="address"></div>
 <div class="table-responsive">
   <table class="table table-bordered">
     <thead>
     <tr>
-      <th>Games</th>
-      <th>Maybe a popularity counter?</th>
+      <th>Available Moves</th>
+      <th>Explication</th>
+      <th>Popularity</th>
     </tr>
     </thead>
     <tbody>
     <tr>
-      <td>Dice</td>
-      <td id="candidate-1"></td>
+      <td>Odd</td>
+      <td>Place a bet on odd numbers</td>
+      <td id="game-1"></td>
+    </tr>
+    <tr>
+      <td>Even</td>
+      <td>Place a bet on even numbers</td>
+      <td id="game-2"></td>
     </tr>
     <tr>
       <td>Your creativity comes into play here!</td>
-      <td id="candidate-2"></td>
+      <td>Explain what your idea is :) </td>
+      <td id="game-3"></td>
     </tr>
     </tbody>
   </table>
   <div id="msg"></div>
 </div>
-<td>Which Game do you want to play? (For the time being, no input required)</td>
+<p>
+  Which move are you gonna make? <br>
+  <input type="text" id="candidate" placeholder="Enter a valid game name from above"/>
+</p>
+<p>
+  How much ether do you risk? <br>
+  <input type="number" id="betAmount" placeholder="Enter the amount of ether you want to gamble"/>
+</p>
+<p class="bottom-three">
+  <a href="#" onclick="voteForCandidate()" class="btn btn-primary">Rien ne va plus!</a>
+</p>
+
+
+<h1>An Interesting New Game for Later</h1>
+<div id="address"></div>
+<div class="table-responsive">
+  <table class="table table-bordered">
+    <thead>
+    <tr>
+      <th>Available Moves</th>
+      <th>Explication</th>
+      <th>Popularity</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>Your creativity comes into play here!</td>
+      <td>Explain what your idea is :) </td>
+      <td id="candidate-3"></td>
+    </tr>
+    </tbody>
+  </table>
+  <div id="msg"></div>
+</div>
+<td>Which move are you gonna make?</td>
 <input type="text" id="candidate" />
-<a href="#" onclick="voteForCandidate()" class="btn btn-primary">Roll the dice!</a>
+</p>
+<p class="bottom-three">
+<td>How much ether do you risk?</td>
+<input type="number" id="betAmount" />
+<a href="#" onclick="voteForCandidate()" class="btn btn-primary">Go!</a>
+</p>
 </body>
 <script src="https://cdn.rawgit.com/ethereum/web3.js/develop/dist/web3.js"></script>
 <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"></script>

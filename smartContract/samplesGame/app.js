@@ -15,30 +15,58 @@ import { default as contract } from 'truffle-contract'
  * https://gist.github.com/maheshmurthy/f6e96d6b3fff4cd4fa7f892de8a1a1b4#file-index-js
  */
 
-import voting_artifacts from '../../build/contracts/Voting.json'
 import game_artifacts from '../../build/contracts/Game.json'
 
 
-var Voting = contract(voting_artifacts);
 var Game = contract(game_artifacts);
 
-let candidates = {"Rama": "candidate-1", "Nick": "candidate-2", "Jose": "candidate-3"}
+let games = {"Odd": "game-1", "Even": "game-2", "Other": "game-3"}
 
 window.voteForCandidate = function(candidate) {
-  let candidateName = $("#candidate").val();
+  let gameName = $("#candidate").val();
+  let betAmount = parseInt($("#betAmount").val(), 10);
   try {
-    $("#msg").html("Vote has been submitted. The vote count will increment as soon as the vote is recorded on the blockchain. Please wait.")
-    $("#candidate").val("");
-
-    /* Voting.deployed() returns an instance of the contract. Every call
-     * in Truffle returns a promise which is why we have used then()
-     * everywhere we have a transaction call
-     */
-    Game.deployed().then(function(contractInstance) {
-      contractInstance.playGame({gas: 140000, from: web3.eth.accounts[1]});
-    });
+    if (typeof betAmount != 'number') {
+      $("#msg").html(betAmount + " is not a valid amount of Ether to gamble. typeof returns " + typeof betAmount);
+    } else if ( betAmount <= 0) {
+      $("#msg").html(betAmount + " is not a valid amount of Ether to gamble. Please use a positive value.");
+    } else {
+      if (gameName == 'Odd') {
+        $("#msg").html("You placed a bet of " + betAmount + " on " + gameName + "! The ball is rolling. Wait for the blockchain which should be coming directly.");
+        // $("#candidate").val("");
+        Game.deployed().then(function(contractInstance) {
+          contractInstance.betOdd({gas: 140000, value: betAmount, from: web3.eth.accounts[1]}).then(function (v) {
+            console.log(v);
+            updateLists();
+          });
+        });
+      } else if (gameName == 'Even') {
+        $("#msg").html("You placed a bet of " + betAmount + " on " + gameName + "! The ball is rolling. Wait for the blockchain which should be coming directly.");
+        // $("#candidate").val("");
+        Game.deployed().then(function(contractInstance) {
+          contractInstance.betEven({gas: 140000, value: betAmount, from: web3.eth.accounts[1]}).then(function (v) {
+            console.log(v);
+            updateLists();
+          });
+        });
+      } else {
+        $("#msg").html("Your input \"" + gameName + "\" is not a valid game. Try using one of the listed games above.");
+      }
+    }
   } catch (err) {
     console.log(err);
+  }
+}
+
+function updateLists() {
+  let gameNames = Object.keys(games);
+  for (var i = 0; i < gameNames.length; i++) {
+    let name = gameNames[i];
+    Game.deployed().then(function(contractInstance) {
+      contractInstance.totalVotesFor.call(name).then(function(callbackValue) {
+        $("#" + games[name]).html(callbackValue.toString());
+      });
+    })
   }
 }
 
@@ -55,19 +83,5 @@ $( document ).ready(function() {
   }
 
   Game.setProvider(web3.currentProvider);
-
-  Voting.setProvider(web3.currentProvider);
-  let candidateNames = Object.keys(candidates);
-  for (var i = 0; i < candidateNames.length; i++) {
-    let name = candidateNames[i];
-    Voting.deployed().then(function(contractInstance) {
-      contractInstance.totalVotesFor.call(name).then(function(v) {
-        $("#" + candidates[name]).html(v.toString());
-      });
-    })
-  }
+  updateLists();
 });
-
-
-// Voting.deployed().then(function(contractInstance) {contractInstance.playGame({gas: 140000, from: web3.eth.accounts[1]})})
-// Game.deployed().then(function(contractInstance) {contractInstance.playGame({gas: 140000, from: web3.eth.accounts[1]})})
