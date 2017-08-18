@@ -34,7 +34,7 @@ window.playRoulette = function() {
       if (gameName == 'Odd') {
         $("#msg").html("You placed a bet of " + betAmount + " on " + gameName + "! The ball is rolling. Wait for the blockchain which should be coming directly.");
         Game.deployed().then(function(contractInstance) {
-          contractInstance.betOdd({gas: 140000, value: betAmount, from: web3.eth.accounts[1]}).then(function (v) {
+          contractInstance.betOdd({gas: 140000, value: betAmount, from: web3.eth.accounts[0]}).then(function (v) {
             console.log(v);
             updateLists();
           });
@@ -42,7 +42,7 @@ window.playRoulette = function() {
       } else if (gameName == 'Even') {
         $("#msg").html("You placed a bet of " + betAmount + " on " + gameName + "! The ball is rolling. Wait for the blockchain which should be coming directly.");
         Game.deployed().then(function(contractInstance) {
-          contractInstance.betEven({gas: 140000, value: betAmount, from: web3.eth.accounts[1]}).then(function (v) {
+          contractInstance.betEven({gas: 140000, value: betAmount, from: web3.eth.accounts[0]}).then(function (v) {
             console.log(v);
             updateLists();
           });
@@ -50,7 +50,7 @@ window.playRoulette = function() {
       } else if (gameName == 'Zero') {
         $("#msg").html("You placed a bet of " + betAmount + " on " + gameName + "! The ball is rolling. Wait for the blockchain which should be coming directly.");
         Game.deployed().then(function(contractInstance) {
-          contractInstance.betZero({gas: 140000, value: betAmount, from: web3.eth.accounts[1]}).then(function (v) {
+          contractInstance.betZero({gas: 140000, value: betAmount, from: web3.eth.accounts[0]}).then(function (v) {
             console.log(v);
             updateLists();
           });
