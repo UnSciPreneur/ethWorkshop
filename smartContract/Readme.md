@@ -48,7 +48,7 @@ npm install -g truffle
 
 ### Setup a truffle project
 
-We need to set up a truffle project, which helps us to deploy the smart contract and interact with it. 
+We need to set up a truffle project, which helps us to deploy the smart contract and interact with it. Inside the ethereumWorkshop directory execute: 
 ```bash
 mkdir gameDapp
 cd gameDapp
@@ -77,10 +77,10 @@ In the directory of the dapp gameDapp/ use truffle to deploy the contract
 ```bash
 truffle migrate
 ```
-This compiles the contract and writes it to the Ethereum blockchain. It might take a minute to finish if you're on the private blockchain. If you are using testrpc it should only take a few seconds (that's the advantage!). If it does not work, check that your geth account account[0] is unlocked and has enough ether to interact with the blockchain.
+This compiles the contract and writes it to the Ethereum blockchain. It might take a minute to finish if you're on the private blockchain. If you are using testrpc it should only take a few seconds (that's the advantage!). If it does not work, check that your geth client or testrpc is running and account account[0] is unlocked and has enough ether to interact with the blockchain.
 
 ## Interact with the contract on the blockchain
-In the directory of the dapp myFirstDapp/ open a truffle console
+In the directory of the dapp gameDapp/ open a truffle console
 ```bash
 truffle console
 ```
