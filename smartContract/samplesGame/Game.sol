@@ -9,10 +9,6 @@ contract Game {
   mapping (bytes32 => uint8) public popularityScore;
   bytes32[] public gameList;
 
-  //  uint public blockNumber;
-  //  bytes32 public blockHashNow;
-  //  uint random_number;
-
   // Constructor
   function Game(bytes32[] games) payable {
     gameList = games;

@@ -20,7 +20,7 @@ import game_artifacts from '../../build/contracts/Game.json'
 
 var Game = contract(game_artifacts);
 
-let games = {"Odd": "game-1", "Even": "game-2", "Other": "game-3"}
+let games = {"Odd": "game-1", "Even": "game-2", "Zero": "game-3"}
 
 window.playRoulette = function() {
   let gameName = $("#game").val();
