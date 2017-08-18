@@ -125,3 +125,17 @@ If you need to redeploy all contracts you can use
 npm truffle migragte --reset
 ```
 If you just want to deploy new contracts, you can discard the flag "--reset".
+
+# Smart contract development
+
+If you just want to quickly test a smart contract, you can do that online at 
+https://remix.ethereum.org/
+. It lets you create a smart contract and test the individual functions in your browser.
+
+The official online documentation for solidity (the language of smart contracts) is here 
+https://solidity.readthedocs.io/en/develop/
+.
+
+And the truffle documentation 
+http://truffleframework.com/docs/
+.
