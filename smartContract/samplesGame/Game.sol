@@ -3,15 +3,15 @@ pragma solidity ^0.4.11;
 
 contract Game {
   /* mapping field below is equivalent to an associative array or hash.
-  The key of the mapping is candidate name stored as type bytes32 and value is
+  The key of the mapping is game name stored as type bytes32 and value is
   an unsigned integer to store the vote count
   */
   mapping (bytes32 => uint8) public popularityScore;
   bytes32[] public gameList;
 
-  uint public blockNumber;
-  bytes32 public blockHashNow;
-  uint random_number;
+  //  uint public blockNumber;
+  //  bytes32 public blockHashNow;
+  //  uint random_number;
 
   // Constructor
   function Game(bytes32[] games) payable {
@@ -46,9 +46,20 @@ contract Game {
     }
   }
 
+  function betZero() payable returns (bool) {
+    uint result = rouletteResult();
+    voteForGame('Zero');
+    if (result == 0) {
+      msg.sender.transfer(36*msg.value);
+      return true;
+    } else {
+      return false;
+    }
+  }
+
   //  Helper Functions
   function rouletteResult() returns (uint) {
-    return uint(block.blockhash(block.number-1))%32;
+    return uint(block.blockhash(block.number-1))%37;
   }
 
   // This function returns the total votes a game has received so far

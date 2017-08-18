@@ -22,8 +22,8 @@ var Game = contract(game_artifacts);
 
 let games = {"Odd": "game-1", "Even": "game-2", "Other": "game-3"}
 
-window.voteForCandidate = function(candidate) {
-  let gameName = $("#candidate").val();
+window.playRoulette = function() {
+  let gameName = $("#game").val();
   let betAmount = parseInt($("#betAmount").val(), 10);
   try {
     if (typeof betAmount != 'number') {
@@ -33,7 +33,6 @@ window.voteForCandidate = function(candidate) {
     } else {
       if (gameName == 'Odd') {
         $("#msg").html("You placed a bet of " + betAmount + " on " + gameName + "! The ball is rolling. Wait for the blockchain which should be coming directly.");
-        // $("#candidate").val("");
         Game.deployed().then(function(contractInstance) {
           contractInstance.betOdd({gas: 140000, value: betAmount, from: web3.eth.accounts[1]}).then(function (v) {
             console.log(v);
@@ -42,9 +41,16 @@ window.voteForCandidate = function(candidate) {
         });
       } else if (gameName == 'Even') {
         $("#msg").html("You placed a bet of " + betAmount + " on " + gameName + "! The ball is rolling. Wait for the blockchain which should be coming directly.");
-        // $("#candidate").val("");
         Game.deployed().then(function(contractInstance) {
           contractInstance.betEven({gas: 140000, value: betAmount, from: web3.eth.accounts[1]}).then(function (v) {
+            console.log(v);
+            updateLists();
+          });
+        });
+      } else if (gameName == 'Zero') {
+        $("#msg").html("You placed a bet of " + betAmount + " on " + gameName + "! The ball is rolling. Wait for the blockchain which should be coming directly.");
+        Game.deployed().then(function(contractInstance) {
+          contractInstance.betZero({gas: 140000, value: betAmount, from: web3.eth.accounts[1]}).then(function (v) {
             console.log(v);
             updateLists();
           });
