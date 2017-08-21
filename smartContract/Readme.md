@@ -86,13 +86,13 @@ truffle console
 ```
 You can interact through this console with your contract. For example place a bet on even numbers (we are playing roulette, in case you did not bother to read the smart contract): 
 
-```bash
+```truffle
 truffle(default)> Game.deployed().then(function(contractInstance) {contractInstance.betEven({gas: 140000, value: 100, from: web3.eth.accounts[0]}).then(function (v) {console.log(v)})})
 ```
 Note: Don't write "truffle(default)>", start with "Game.deplo..." The start is just intended to tell you to use the truffle console.
 
 You should get the information back from the blockchain transaction, something similar to this
-```bash
+```truffle
 truffle(development)> { tx: '0x15e40e3a78737f8a97c7af3445554812a0997743dc4f2307ea7a18187bd6b9fa',
   receipt: 
    { transactionHash: '0x15e40e3a78737f8a97c7af3445554812a0997743dc4f2307ea7a18187bd6b9fa',
