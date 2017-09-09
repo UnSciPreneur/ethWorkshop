@@ -1,13 +1,13 @@
 {
-  "name": "truffle-init-webpack",
+  "name": "smart-contract-game-example",
   "version": "0.0.1",
-  "description": "Frontend example using truffle v3",
+  "description": "Game contract example using truffle v3",
   "scripts": {
     "lint": "eslint ./",
     "build": "webpack",
     "dev": "webpack-dev-server"
   },
-  "author": "Douglas von Kohorn",
+  "author": "Mathieu Chanson",
   "license": "MIT",
   "devDependencies": {
     "babel-cli": "^6.22.2",

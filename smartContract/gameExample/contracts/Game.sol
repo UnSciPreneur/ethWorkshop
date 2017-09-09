@@ -22,9 +22,9 @@ contract Game {
   //  Here we define our Game Functions: They accept sent ether and play a corresponding game with it
   function betOdd() payable returns (bool) {
     uint result = rouletteResult();
-    voteForGame('Odd');
-    if (result != 0 && result%2 == 1) {
-      msg.sender.transfer(2*msg.value);
+    countForGame('Odd');
+    if (result != 0 && result % 2 == 1) {
+      msg.sender.transfer(2 * msg.value);
       return true;
     } else {
       return false;
@@ -33,9 +33,9 @@ contract Game {
 
   function betEven() payable returns (bool) {
     uint result = rouletteResult();
-    voteForGame('Even');
-    if (result != 0 && result%2 == 0) {
-      msg.sender.transfer(2*msg.value);
+    countForGame('Even');
+    if (result != 0 && result % 2 == 0) {
+      msg.sender.transfer(2 * msg.value);
       return true;
     } else {
       return false;
@@ -44,9 +44,9 @@ contract Game {
 
   function betZero() payable returns (bool) {
     uint result = rouletteResult();
-    voteForGame('Zero');
+    countForGame('Zero');
     if (result == 0) {
-      msg.sender.transfer(36*msg.value);
+      msg.sender.transfer(36 * msg.value);
       return true;
     } else {
       return false;
@@ -55,18 +55,18 @@ contract Game {
 
   //  Helper Functions
   function rouletteResult() returns (uint) {
-    return uint(block.blockhash(block.number-1))%37;
+    return uint(block.blockhash(block.number - 1)) % 37;
   }
 
-  // This function returns the total votes a game has received so far
-  function totalVotesFor(bytes32 game) returns (uint8) {
+  // This function returns the total invocations a game has received so far
+  function totalInvocationsFor(bytes32 game) returns (uint8) {
     if (validGame(game) == false) revert();
     return popularityScore[game];
   }
 
-  // This function increments the vote count for the specified game. This
+  // This function increments the invocation count for the specified game. This
   // is equivalent to casting a vote
-  function voteForGame(bytes32 game) {
+  function countForGame(bytes32 game) {
     if (validGame(game) == false) revert();
     popularityScore[game] += 1;
   }

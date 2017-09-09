@@ -62,7 +62,7 @@ Copy and/or replace the files from the folder *samplesGame* to their appropriate
 
 Copy *Game.sol* to ./contracts/
 
-Copy *3_deploy_Game.js* to ./migrations/
+Copy *2_deploy_Game.js* to ./migrations/
 
 Replace app/javascripts/app.js with *app.js*
 
@@ -70,7 +70,7 @@ Replace app/stylesheets/app.css with *app.css*
  
 Replace app/index.html with *index.html*
 
-A short explanation regarding the use of those files: *Game.sol* is the smart contract you will deploy, it offers some roulette gambling functions. *3_deploy_Game.js* tells the truffle framework, how it should deploy the smart contract from your computer to the blockchain. The files in the app/ directory create a website that lets you interact with the smart contract on a graphic interface in your browser.
+A short explanation regarding the use of those files: *Game.sol* is the smart contract you will deploy, it offers some roulette gambling functions. *2_deploy_Game.js* tells the truffle framework, how it should deploy the smart contract from your computer to the blockchain. The files in the app/ directory create a website that lets you interact with the smart contract on a graphic interface in your browser.
 
 ### Deploy the contract to the blockchain
 In the directory of the dapp gameDapp/ use truffle to deploy the contract

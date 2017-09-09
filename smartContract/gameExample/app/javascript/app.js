@@ -18,20 +18,20 @@ import { default as contract } from 'truffle-contract'
 import game_artifacts from '../../build/contracts/Game.json'
 
 
-var Game = contract(game_artifacts);
+let Game = contract(game_artifacts);
 
-let games = {"Odd": "game-1", "Even": "game-2", "Zero": "game-3"}
+let games = {"Odd": "game-1", "Even": "game-2", "Zero": "game-3"};
 
 window.playRoulette = function() {
   let gameName = $("#game").val();
   let betAmount = parseInt($("#betAmount").val(), 10);
   try {
-    if (typeof betAmount != 'number') {
+    if (typeof betAmount !== 'number') {
       $("#msg").html(betAmount + " is not a valid amount of Ether to gamble. typeof returns " + typeof betAmount);
     } else if ( betAmount <= 0) {
       $("#msg").html(betAmount + " is not a valid amount of Ether to gamble. Please use a positive value.");
     } else {
-      if (gameName == 'Odd') {
+      if (gameName === 'Odd') {
         $("#msg").html("You placed a bet of " + betAmount + " on " + gameName + "! The ball is rolling. Wait for the blockchain which should be coming directly.");
         Game.deployed().then(function(contractInstance) {
           contractInstance.betOdd({gas: 140000, value: betAmount, from: web3.eth.accounts[0]}).then(function (v) {
@@ -39,7 +39,7 @@ window.playRoulette = function() {
             updateLists();
           });
         });
-      } else if (gameName == 'Even') {
+      } else if (gameName === 'Even') {
         $("#msg").html("You placed a bet of " + betAmount + " on " + gameName + "! The ball is rolling. Wait for the blockchain which should be coming directly.");
         Game.deployed().then(function(contractInstance) {
           contractInstance.betEven({gas: 140000, value: betAmount, from: web3.eth.accounts[0]}).then(function (v) {
@@ -47,7 +47,7 @@ window.playRoulette = function() {
             updateLists();
           });
         });
-      } else if (gameName == 'Zero') {
+      } else if (gameName === 'Zero') {
         $("#msg").html("You placed a bet of " + betAmount + " on " + gameName + "! The ball is rolling. Wait for the blockchain which should be coming directly.");
         Game.deployed().then(function(contractInstance) {
           contractInstance.betZero({gas: 140000, value: betAmount, from: web3.eth.accounts[0]}).then(function (v) {
@@ -62,14 +62,14 @@ window.playRoulette = function() {
   } catch (err) {
     console.log(err);
   }
-}
+};
 
 function updateLists() {
   let gameNames = Object.keys(games);
-  for (var i = 0; i < gameNames.length; i++) {
+  for (let i = 0; i < gameNames.length; i++) {
     let name = gameNames[i];
     Game.deployed().then(function(contractInstance) {
-      contractInstance.totalVotesFor.call(name).then(function(callbackValue) {
+      contractInstance.totalInvocationsFor.call(name).then(function(callbackValue) {
         $("#" + games[name]).html(callbackValue.toString());
       });
     })
@@ -79,13 +79,13 @@ function updateLists() {
 
 $( document ).ready(function() {
   if (typeof web3 !== 'undefined') {
-    console.warn("Using web3 detected from external source like Metamask")
+    console.warn("Using web3 detected from external source like Metamask");
     // Use Mist/MetaMask's provider
     window.web3 = new Web3(web3.currentProvider);
   } else {
     console.warn("No web3 detected. Falling back to http://localhost:8545. You should remove this fallback when you deploy live, as it's inherently insecure. Consider switching to Metamask for development. More info here: http://truffleframework.com/tutorials/truffle-and-metamask");
     // fallback - use your fallback strategy (local node / hosted node + in-dapp id mgmt / fail)
-    window.web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
+    window.web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:18545"));
   }
 
   Game.setProvider(web3.currentProvider);
