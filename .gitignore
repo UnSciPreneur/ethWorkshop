@@ -10,3 +10,4 @@ nodes/data_eth_1/keystore/UTC--*
 nodes/data_eth_1/history
 *.log
 *.log.*
+smartContract/gameDapp

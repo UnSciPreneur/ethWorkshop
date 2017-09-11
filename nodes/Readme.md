@@ -1,5 +1,11 @@
 # Setup of local Ethereum node(s)
 
+## Software requirements
+
+Besides the code in this repository you will need the following software to run your own Ethereum node:
+* *geth* in version 1.6.7 or higher [https://geth.ethereum.org/downloads/](https://geth.ethereum.org/downloads/)
+* *mist* in version 0.9.0 or higher [https://github.com/ethereum/mist/releases](https://github.com/ethereum/mist/releases) (lower version numbers will not support the language level of the smart contracts used in this tutorial!)                        
+
 ## Overview
 
 Three main scripts exist for nodes 0 and 1:
@@ -28,7 +34,7 @@ Those will exposed the following configurations:
 
 ### Creating the genesis block
 
-**Note:** In the following we assume that you are running code in a shell (bash) and that your current working directory is the `nodes` directory in the repository root.
+**Note:** In the following we assume that you are running code in a shell (bash) and that your current working directory is the `./nodes` directory in the repository root.
 
 Before you start the node you have to initialize it by running
 ```
@@ -52,8 +58,7 @@ Start your node with an interactive shell by running
 ```bash
 ./run_eth_node_0.sh
 ```
-In this console you can use loads of commands to control the behaviour of your node. A good overview about the console and the available commands is given here:
-                                                                                     https://github.com/ethereum/go-ethereum/wiki/JavaScript-Console
+In this console you can use loads of commands to control the behaviour of your node. A good overview about the console and the available commands is given [here](https://github.com/ethereum/go-ethereum/wiki/JavaScript-Console).
 
 Maybe you want to start by trying (one of) the following:
 ```
@@ -72,7 +77,7 @@ The command `admin.nodeInfo.enode` did give you a cryptic identifier of your nod
 ```
 admin.addPeer("enode://41255274505a6daaadb9d43bf7029354969ba039b1730eeac805bed5ca72732e5147d2f027d14a0e252ba5e9be6752ef3aaeeda2b44b750252e0ae82e0523615@136.243.110.29:40303")
 ```
-(This IP address belongs to the domains _n3.certificar.de_.)
+(This IP address belongs to the domain _n3.certificar.de_.)
 
 Now your network should be fully functional.
 
