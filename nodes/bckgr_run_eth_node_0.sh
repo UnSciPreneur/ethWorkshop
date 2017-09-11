@@ -17,7 +17,7 @@ then
 fi
 
 # Define a few key parameters
-NETWORKID=31297718
+NETWORKID=20012017
 # get the actual ip of the interface (replace 'eth0' by 'wlan0' if you are using wireless lan)
 RPCADDRESS=`ifconfig eth0 | grep 'inet addr:' | cut -d: -f2 | awk '{ print $1}'`
 RPCPORT=18545

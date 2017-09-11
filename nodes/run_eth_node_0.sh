@@ -27,7 +27,7 @@ then
 fi
 
 # Define a few key parameters
-NETWORKID=31297718
+NETWORKID=20012017
 
 
 if [[ $RPCEXTERNAL == 1 ]]

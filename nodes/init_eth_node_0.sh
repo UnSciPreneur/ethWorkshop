@@ -8,7 +8,7 @@ if [ ! -d ${data_folder} ]; then
 fi
 
 # Define a few key parameters
-NETWORKID=31297718
+NETWORKID=20012017
 PORT=40303
 
 geth --datadir="data_eth_0" --identity "eth_node_0" --verbosity 4 --port ${PORT} --ipcdisable --networkid ${NETWORKID} init genesis.json console 2>>"eth_0.log"
