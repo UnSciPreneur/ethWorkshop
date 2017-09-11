@@ -75,7 +75,8 @@ You should see that you are at block number 0, the hashrate should turn positive
 The command `admin.nodeInfo.enode` did give you a cryptic identifier of your node. These are used to connect to other nodes in the peer-to-peer network. We have prepared a small network of three nodes running on three different machines. You can add each of those by running on of the following commands. Afterwards check `admin.peers` to see whether the nodes have been added successfully.
 
 ```
-admin.addPeer("enode://7b6034f940bf1cce71d79890194c269ad3751ee90ddc75cf18e8171c0050acc5929638dfa1932019423fe2316c3f6f7bc095d574f327a0cda83ee5352a196790@18.194.20.255:40303")
+admin.addPeer("enode://baf967cd06e808fdbd6174110a810f8f89c517d367c84c223d5c6162e5dc2af16aa30254f6666bc46d59d3d6d979878e7dc3f9ef48a378c393ba384398f2b866@18.194.20.255:40303")
+admin.addPeer("enode://d4fe849e883317ba7bfbbdb7e5d38f433669b217b6e9b9127dc9e9421ca34f68ea324ae0300291c48f7d2a41c397edef990acd0790aa3cfe90859128fb494d29@18.194.25.235:40303")
 ```
 
 If you experience problems connecting to this peer you may want to try its RPC interface first:
