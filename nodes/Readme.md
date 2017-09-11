@@ -75,9 +75,17 @@ You should see that you are at block number 0, the hashrate should turn positive
 The command `admin.nodeInfo.enode` did give you a cryptic identifier of your node. These are used to connect to other nodes in the peer-to-peer network. We have prepared a small network of three nodes running on three different machines. You can add each of those by running on of the following commands. Afterwards check `admin.peers` to see whether the nodes have been added successfully.
 
 ```
-admin.addPeer("enode://41255274505a6daaadb9d43bf7029354969ba039b1730eeac805bed5ca72732e5147d2f027d14a0e252ba5e9be6752ef3aaeeda2b44b750252e0ae82e0523615@136.243.110.29:40303")
+admin.addPeer("enode://7b6034f940bf1cce71d79890194c269ad3751ee90ddc75cf18e8171c0050acc5929638dfa1932019423fe2316c3f6f7bc095d574f327a0cda83ee5352a196790@18.194.20.255:40303")
 ```
-(This IP address belongs to the domain _n3.certificar.de_.)
+
+If you experience problems connecting to this peer you may want to try its RPC interface first:
+```
+curl -X POST --data '{"jsonrpc":"2.0","method":"eth_blockNumber","params":[],"id":83}' 18.194.20.255:18545
+```
+The response should contain the current block number of the private chain and look like
+```
+{"jsonrpc":"2.0","id":83,"result":"0xc2"}
+```
 
 Now your network should be fully functional.
 
