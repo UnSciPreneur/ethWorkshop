@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>A simple roulette DApp</title>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+  <link href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' rel='stylesheet' type='text/css'>
+</head>
+<body class="container">
+<h1>A Simple Roulette Application</h1>
+<div id="address"></div>
+<div class="table-responsive">
+  <table class="table table-bordered">
+    <thead>
+    <tr>
+      <th>Available Moves</th>
+      <th>Explication</th>
+      <th>Popularity</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>Odd</td>
+      <td>Place a bet on odd numbers</td>
+      <td id="game-1"></td>
+    </tr>
+    <tr>
+      <td>Even</td>
+      <td>Place a bet on even numbers</td>
+      <td id="game-2"></td>
+    </tr>
+    <tr>
+      <td>Zero</td>
+      <td>Place a bet on number zero </td>
+      <td id="game-3"></td>
+    </tr>
+    </tbody>
+  </table>
+  <div id="msg"></div>
+</div>
+<p>
+  Which move are you gonna make? <br>
+  <input type="text" id="game" placeholder="Enter a valid game name from above" class="inputWidth"/>
+</p>
+<p>
+  How much ether do you risk? <br>
+  <input type="number" id="betAmount" placeholder="Enter the amount of ether you want to gamble" class="inputWidth"/>
+</p>
+<p class="bottom-three">
+  <a href="#" onclick="playRoulette()" class="btn btn-primary">Rien ne va plus!</a>
+</p>
+
+
+<h1>An Interesting New Game for Later</h1>
+<div id="address"></div>
+<div class="table-responsive">
+  <table class="table table-bordered">
+    <thead>
+    <tr>
+      <th>Available Moves</th>
+      <th>Explication</th>
+      <th>Popularity</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>Your creativity comes into play here!</td>
+      <td>Explain what your idea is :) </td>
+      <td id="game-4"></td>
+    </tr>
+    </tbody>
+  </table>
+  <div id="msg"></div>
+</div>
+<p>
+  Which move are you gonna make? <br>
+  <input type="text" id="secondGame" placeholder="Enter a valid game name from above" class="inputWidth"/>
+</p>
+<p>
+  How much ether do you risk? <br>
+  <input type="number" id="betAmount" placeholder="Enter the amount of ether you want to gamble" class="inputWidth"/>
+</p>
+<p class="bottom-three">
+  <a href="#" onclick="playRoulette()" class="btn btn-primary">Go!</a>
+</p>
+</body>
+<script src="https://cdn.rawgit.com/ethereum/web3.js/develop/dist/web3.js"></script>
+<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"></script>
+<script src="app.js"></script>
+</html>
