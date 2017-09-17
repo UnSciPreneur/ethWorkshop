@@ -67,18 +67,13 @@ We need to set up a truffle project, which helps us to deploy the smart contract
 mkdir gameDapp
 cd gameDapp
 npm install -g webpack
-truffle unbox webpack
+truffle unbox tutorialtoken
 ```
 Truffle creates a sample dapp (distributed app aka app on the Ethereum blockchain). The corresponding smart contracts are stored in the directory contracts and the part for the web interaction in app. You can safely delete the ConvertLib.sol and MetaCoin.sol files in the contracts directory and 2_deploy_contracts.js in the migrations directory for this project. The files in the migration directory are used to deploy the contracts to the blockchain.
 
 ### Fill the truffle project with your content
 
 Copy and/or replace the files from the folder *gameExample* to their appropriate locations: 
-
-Remove the following files. We will not use them:
- * `./contracts/ConvertLib.sol`
- * `./contracts/MetaCoin.sol`
- * `./migrations/2_deploy_contracts.js`
 
 Copy `./contracts/Game.sol` to `./contracts/`
 Copy `./migrations/2_deploy_game.js` to `./migrations/`

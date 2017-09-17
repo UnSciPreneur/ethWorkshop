@@ -75,9 +75,10 @@ You should see that you are at block number 0, the hashrate should turn positive
 The command `admin.nodeInfo.enode` did give you a cryptic identifier of your node. These are used to connect to other nodes in the peer-to-peer network. We have prepared a small network of three nodes running on three different machines. You can add each of those by running on of the following commands. Afterwards check `admin.peers` to see whether the nodes have been added successfully.
 
 ```
-admin.addPeer("enode://41255274505a6daaadb9d43bf7029354969ba039b1730eeac805bed5ca72732e5147d2f027d14a0e252ba5e9be6752ef3aaeeda2b44b750252e0ae82e0523615@136.243.110.29:40303")
+admin.addPeer("enode://2f2147e2065c87ab8eb43b1b894c27af9db9a9c4bce5174f763e0ffeb35f2c1d043a8cbf88259a7b3c24fe1d7448524b95432879e743af7e3ee05ab69eeda9f2@136.243.110.29:40303")
+admin.addPeer("enode://99935e736a102fea5d65ee70467f9884823c215739fc64d3abaf9de29204cb2056ab5c9fc3f4cebba7bbb2cf6714cf8e5421e0a65a6575e34d2fd6e9c7b9edb5@18.194.25.235:40303")
+admin.addPeer("enode://d32e89d63d4bf2955fbb7cf9a7bd4d93cd7b5233d5a2a78652066eabde5f5e023fed86a262585c83d7499232030f302d9470fd163dd9ff2dba6550f8be532e94@18.194.20.255:40303")
 ```
-(This IP address belongs to the domain _n3.certificar.de_.)
 
 Now your network should be fully functional.
 
