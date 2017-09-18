@@ -39,12 +39,12 @@ We will need Node.js in version *6.9.x* or higher!
 
 Install the npm package [web3](https://www.npmjs.com/package/web3) to interact with the Ethereum client from Node.js or a web browser. We choose the current stable version 0.20.0.
 ```bash
-npm install web3@0.20.0
+npm install -g web3@0.20.0
 ```
 
 Install [truffle](https://www.npmjs.com/package/truffle)
 ```bash
-npm install truffle
+npm install -g truffle
 ```
 
 ## Running a working smart contract example
